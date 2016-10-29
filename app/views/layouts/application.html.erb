@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FYPApp</title>
+  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<%= link_to "Home Page",  page_home_path%>
+	
+	<%-# if the user is logged in just show sign out button -%>
+	<% if user_signed_in? %>
+		<%= link_to "Sign Out", destroy_user_session_path, method: :delete %><br>
+	<%else%>
+
+		<%= link_to "Sign In", new_user_session_path%>
+		<%= link_to "Sign Up", new_user_registration_path%>
+	<%end%>
+	
+	<%= link_to "About Us",  page_about_path%>
+	<%= link_to "Contact Us",  page_contact_path%>
+	
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
