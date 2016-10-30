@@ -10,11 +10,11 @@
 	
 	<%= link_to "Home Page",  page_home_path%>
 	
-	<%-# if the user is logged in just show sign out button -%>
+	<%-# if the user is logged in just show sign out and edit account button -%>
 	<% if user_signed_in? %>
 		<%= link_to "Sign Out", destroy_user_session_path, method: :delete %><br>
+		<%= link_to "Manage Account", edit_user_registration_path %> <br>
 	<%else%>
-
 		<%= link_to "Sign In", new_user_session_path%>
 		<%= link_to "Sign Up", new_user_registration_path%>
 	<%end%>
